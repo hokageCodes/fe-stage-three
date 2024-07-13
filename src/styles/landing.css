@@ -1,0 +1,349 @@
+/* Hero Section */
+.sneaker-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #EDF4EA;
+    height: 85vh;
+  }
+  .sneaker-text {
+    max-width: 822px;
+  }
+  
+  .sneaker-text h1 {
+    max-width: 722px;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #1F4320;
+    margin-bottom: 20px;
+  }
+  
+  .sneaker-text p {
+    font-size: 1.25rem;
+    color: #3C843F;
+    margin-bottom: 30px;
+  }
+  
+  .explore-button {
+    width: 242px;
+    height: 4rem;
+    background-color: #397B3C;
+    color: #fff;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    text-transform: uppercase;
+  }
+  
+  .explore-button a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .sneaker-image img {
+    margin-top: 135px;
+    width: 600px;
+    height: 720px;
+    object-fit: cover;
+  }
+  
+  /* 768px breakpoint */
+  @media (max-width: 768px) {
+    .sneaker-section {
+      flex-direction: column;
+      padding: 20px;
+      height: auto;
+    }
+  
+    .sneaker-image img {
+        height: 400px;
+      margin-top: -20px;
+      width: 100%;
+    }
+  
+    .sneaker-text {
+      margin-top: 12px;
+      margin-top: -100px;
+      max-width: none;
+      text-align: center;
+    }
+  
+    .sneaker-text h1 {
+      font-size: 3rem;
+    }
+  
+    .sneaker-text p {
+      font-size: 1.3rem;
+    }
+  
+    .explore-button {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* 414px breakpoint */
+  @media (max-width: 414px) {
+    .sneaker-section {
+        height: 90vh;
+    }
+    .sneaker-text h1 {
+      font-size: 3rem;
+      text-align: left;
+    }
+  
+    .sneaker-text p {
+      font-size: 1.25rem;
+      text-align: left;
+    }
+  
+    .sneaker-image img {
+        height: 255px;
+      margin-top: -20px;
+    }
+  
+    .explore-button {
+      padding: 8px 16px;
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* 412px breakpoint */
+  @media (max-width: 412px) {
+    .sneaker-section {
+        height: 90vh;
+    }
+    .sneaker-text h1 {
+        padding-top: 25px;
+      font-size: 3rem;
+      text-align: left;
+      line-height: 56px;
+    }
+  
+    .sneaker-text p {
+      font-size: 1.25rem;
+      text-align: left;
+    }
+  
+    .sneaker-image img {
+        height: 255px;
+      margin-top: -20px;
+    }
+  
+    .explore-button {
+      padding: 8px 16px;
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* 375px breakpoint */
+  @media (max-width: 375px) {
+    .sneaker-section {
+        height: auto;
+    }
+    .sneaker-text{
+        padding-top: 10px;
+    }
+    .sneaker-text h1 {
+        padding-top: 30px;
+        line-height: 56px;
+        font-size: 3rem;
+        text-align: left;
+    }
+  
+    .sneaker-image img {
+        height: 255px;
+        margin-top: -20px;
+    }
+  
+    .sneaker-text p {
+        font-size: 1.25rem;
+        text-align: left;
+        line-height: 24px;
+    }
+  
+    .explore-button {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+
+/* Our Brands */
+.brands-section {
+    padding: 20px;
+    background-color: white;
+  }
+  
+  .brands-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .brands-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .brands-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 48px;
+  }
+  
+  .brand-circle {
+    padding: 32px 18px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #EDF4EA;
+    box-shadow: 0px 1px 2px 1px #00000040;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px;
+  }
+  
+  .brand-image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .brands-title {
+      font-size: 1.5rem;
+    }
+  
+    .brands-grid {
+      gap: 24px;
+    }
+  
+    .brand-circle {
+      width: 80px;
+      height: 80px;
+    }
+}
+  
+
+/* Default (Desktop) Styles */
+.deals-section {
+    padding: 20px;
+  }
+  
+  .deals-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .deals-container {
+    margin-bottom: 40px;
+  }
+  
+  .deals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(242px, 1fr));
+    gap: 20px;
+  }
+  
+  .deal-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+    transition: transform 0.3s;
+  }
+  
+  .deal-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .deal-image {
+    width: 100%;
+    height: 194px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .deal-info {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .deal-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #4D4D4D;
+
+  }
+  
+  .deal-price {
+    text-align: left;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+    }
+    
+  .deal-button {
+    margin-left: -30px;
+    width: 110px;
+    height: 32px;
+    border: 1px solid #999C99;
+    border-radius: 6px solid #999C99;
+    background: transparent;
+    color: #999C99;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+  }
+  
+  .deal-button a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .deals-divider {
+    margin: 40px 0;
+    border: 1px solid #e0e0e0;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .deals-grid {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 414px), (max-width: 412px), (max-width: 375px) {
+    .deals-title {
+      font-size: 1.2rem;
+    }
+  
+    .deal-card {
+      padding: 10px;
+    }
+  
+    .deal-image {
+      height: auto;
+    }
+  
+    .deal-title, .deal-price {
+      font-size: 0.9rem;
+    }
+  
+    .deal-button {
+      padding: 8px 16px;
+      font-size: 0.8rem;
+    }
+  }
+  
+  
