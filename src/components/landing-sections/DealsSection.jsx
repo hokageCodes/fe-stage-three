@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import { getAllProducts } from '../../services/api';
 import '../../styles/landing.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const DealsSection = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -12,24 +13,20 @@ const DealsSection = () => {
   const [topProducts, setTopProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
-
     setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const products = await getAllProducts(1, 10); // Fetch first 10 products
-
+        const products = await getAllProducts(1, 10);
         console.log('Fetched products:', products); // Logging fetched products
 
         if (!products || products.length === 0) {
@@ -49,6 +46,19 @@ const DealsSection = () => {
     fetchProducts();
   }, []);
 
+  const extractPrice = (priceArray) => {
+    if (priceArray && priceArray.length > 0) {
+      const priceObj = priceArray[0];
+      const price = priceObj.NGN ? priceObj.NGN[0] : null;
+      return price;
+    }
+    return null;
+  };
+
+  const handleProductClick = (product) => {
+    navigate(`/product/${product.unique_id}`, { state: { product } }); // Navigate to ProductPage with product data
+  };
+
   const renderSection = (title, items) => (
     <div className="deals-container">
       <h2 className="deals-title">{title}</h2>
@@ -63,43 +73,49 @@ const DealsSection = () => {
               disableOnInteraction: false,
             }}
           >
-            {items.map((item) => (
-              <SwiperSlide key={item.unique_id}>
-                <div className="deal-card">
+            {items.map((item) => {
+              const price = extractPrice(item.current_price);
+              return (
+                <SwiperSlide key={item.unique_id} onClick={() => handleProductClick(item)}>
+                  <div className="deal-card">
+                    <img
+                      src={`https://api.timbu.cloud/images/${item.photos.length > 0 ? item.photos[0].url : 'placeholder.jpg'}`}
+                      alt={item.name}
+                      className="deal-image"
+                    />
+                    <div className="deal-info">
+                      <div className="deal-title">{item.name}</div>
+                      <p className="deal-price">
+                        {price ? `₦${price.toFixed(2)}` : 'N/A'}
+                      </p>
+                      <button className="deal-button">Add to Cart</button>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        ) : (
+          <div className="deals-grid">
+            {items.map((item) => {
+              const price = extractPrice(item.current_price);
+              return (
+                <div key={item.unique_id} className="deal-card" onClick={() => handleProductClick(item)}>
                   <img
-                    src={item.image}
+                    src={`https://api.timbu.cloud/images/${item.photos.length > 0 ? item.photos[0].url : 'placeholder.jpg'}`}
                     alt={item.name}
                     className="deal-image"
                   />
                   <div className="deal-info">
                     <div className="deal-title">{item.name}</div>
                     <p className="deal-price">
-                      ${item.price ? item.price.toFixed(2) : 'N/A'}
+                      {price ? `₦${price.toFixed(2)}` : 'N/A'}
                     </p>
                     <button className="deal-button">Add to Cart</button>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : (
-          <div className="deals-grid">
-            {items.map((item) => (
-              <div key={item.unique_id} className="deal-card">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="deal-image"
-                />
-                <div className="deal-info">
-                  <div className="deal-title">{item.name}</div>
-                  <p className="deal-price">
-                    ${item.price ? item.price.toFixed(2) : 'N/A'}
-                  </p>
-                  <button className="deal-button">Add to Cart</button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>

@@ -1,0 +1,201 @@
+.product-page {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Ensure flex layout */
+  }
+  
+  .product-main-section {
+    display: flex;
+    flex-direction: row; /* Default: horizontal layout */
+    position: relative; /* Relative positioning for stacking elements */
+  }
+  
+  .product-image-section {
+    flex: 1; /* Take remaining space */
+    position: relative; /* Relative positioning for indicator alignment */
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%; /* Ensure image is responsive */
+    border-radius: 8px 0 0 0;
+  }
+  
+  .thumbnail-indicators {
+    position: absolute;
+    top: 0;
+    right: -90px; /* Adjust positioning as needed */
+    display: flex;
+    flex-direction: column; /* Stack indicators vertically */
+    gap: 10px; /* Spacing between indicators */
+  }
+  
+  .thumbnail-indicator-label {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .thumbnail-indicator-label input {
+    display: none; /* Hide the radio button */
+  }
+  
+  .thumbnail-indicator {
+    width: 60px;
+    height: auto;
+    max-width: 100%; /* Ensure thumbnail is responsive */
+    border-radius: 4px;
+  }
+  
+  .thumbnail-indicator-label input:checked + .thumbnail-indicator {
+    border: 2px solid #007bff; /* Example of indicator when thumbnail is active */
+  }
+  
+  .product-details-section {
+    flex: 1;
+    padding-left: 20px;
+  }
+  
+  .product-title {
+    font-family: 'Hero New', sans-serif;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 50.36px;
+    letter-spacing: -0.0032em;
+    text-align: left;
+    margin: 0 0 20px;
+  }
+  
+  .star-rating {
+    font-size: 24px;
+    color: #f39c12;
+    margin: 10px 0;
+  }
+  
+  .filled-star {
+    color: #f39c12;
+  }
+  
+  .empty-star {
+    color: #ddd;
+  }
+  
+  .product-options {
+    display: flex;
+    flex-direction: column; /* Stack options vertically */
+  }
+  
+  .product-options label {
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .product-options select {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .product-price {
+    font-size: 32px;
+    color: #000;
+    margin: 20px 0;
+    font-weight: 700;
+  }
+  
+  .product-description {
+    font-size: 16px;
+    color: #666;
+    margin: 20px 0;
+  }
+  
+  .buy-now-button {
+    width: 100%; /* Full width at all screen sizes */
+    max-width: 525px; /* Limit maximum width */
+    height: 64px;
+    padding: 18px 30px; /* Adjust padding as needed */
+    gap: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #28a745;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .buy-now-button:hover {
+    background-color: #218838;
+    opacity: 1;
+  }
+  
+  /* Responsive breakpoints */
+  
+  @media (max-width: 768px) {
+    .product-main-section {
+      flex-direction: column; /* Stack elements vertically */
+    }
+  
+    .thumbnail-indicators {
+      position: static; /* Ensure indicators are not absolute */
+      display: flex;
+      justify-content: center;
+      margin-top: 10px; /* Add space between image and indicators */
+      gap: 10px; /* Adjust spacing */
+      flex-wrap: wrap; /* Allow indicators to wrap */
+    }
+  
+    .product-details-section {
+      padding-left: 0; /* Remove left padding */
+    }
+  }
+  
+  @media (max-width: 414px) {
+    .product-page {
+      padding: 10px; /* Reduce padding */
+    }
+  
+    .product-title {
+      font-size: 28px; /* Adjust font size */
+      line-height: 40px; /* Adjust line height */
+    }
+  
+    .star-rating {
+      font-size: 20px; /* Adjust font size */
+    }
+  
+    .product-options select {
+      font-size: 14px; /* Adjust font size */
+    }
+  
+    .product-price {
+      font-size: 28px; /* Adjust font size */
+    }
+  
+    .product-description {
+      font-size: 14px; /* Adjust font size */
+    }
+  
+    .buy-now-button {
+      padding: 14px 20px; /* Adjust padding */
+      font-size: 16px; /* Adjust font size */
+    }
+  }
+  
+  @media (max-width: 412px) {
+    .thumbnail-indicators {
+      right: -110px; /* Further adjust positioning */
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .thumbnail-indicators {
+      right: -120px; /* Further adjust positioning */
+    }
+  }
